@@ -15,4 +15,13 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       - run: docker build -t nerojz/react-test -f ./client/Dockerfile.dev ./client
-      - run: docker run -e CI=true nerojz/react-test npm test
+
+      - name: Run Test
+        run: docker run -e CI=true nerojz/react-test npm test
+
+      - name: Build Prod Images
+        steps:
+          - run: docker build -t nerojz/multi-client ./client
+          - run: docker build -t nerojz/multi-worker ./worker
+          - run: docker build -t nerojz/multi-server ./server
+          - run: docker build -t nerojz/multi-nginx ./nginx
