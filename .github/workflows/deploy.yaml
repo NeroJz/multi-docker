@@ -19,9 +19,9 @@ jobs:
       - name: Run Test
         run: docker run -e CI=true nerojz/react-test npm test
 
-      - name: Build Prod Images
-        steps:
-          - run: docker build -t nerojz/multi-client ./client
-          - run: docker build -t nerojz/multi-worker ./worker
-          - run: docker build -t nerojz/multi-server ./server
-          - run: docker build -t nerojz/multi-nginx ./nginx
+      # - name: Build Prod Images
+      #   steps:
+      #     - run: docker build -t nerojz/multi-client ./client
+      #     - run: docker build -t nerojz/multi-worker ./worker
+      #     - run: docker build -t nerojz/multi-server ./server
+      #     - run: docker build -t nerojz/multi-nginx ./nginx
