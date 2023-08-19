@@ -25,3 +25,10 @@ jobs:
           docker build -t nerojz/multi-worker ./worker
           docker build -t nerojz/multi-server ./server
           docker build -t nerojz/multi-nginx ./nginx
+
+      - name: Push Images to Dockerhub
+        run: |
+          docker push nerojz/multi-client
+          docker push nerojz/multi-worker
+          docker push nerojz/multi-server
+          docker push nerojz/multi-nginx
